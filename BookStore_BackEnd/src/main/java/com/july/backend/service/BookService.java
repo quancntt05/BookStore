@@ -13,20 +13,25 @@ import com.july.backend.util.HibernateUtil;
 
 @Service
 public class BookService implements BookRepository{
-
+	
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Books> listBooks() {
 		Session session = HibernateUtil.getSessionFatory().openSession();
-		Query<Books> query = session.createQuery("FROM Books");
+	    Query<Books> query = session.createQuery("FROM Books");
 		List<Books> result = query.list();
 		session.close();
 		return result;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Books> findByAuthor(String author) {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = HibernateUtil.getSessionFatory().openSession();
+		Query<Books> query = session.createQuery("FROM Books b where b.author like '%"+author+"%'");
+		List<Books> result = query.list();
+		session.close();
+		return result;
 	}
 
 	@Override
