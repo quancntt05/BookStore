@@ -14,5 +14,6 @@ public interface BookRepository extends Repository<Books, Integer>{
 	List<Books> findByAuthor(String author);
 	List<Books> findByCategory(Category category);
 	Books findById(Integer id);
+	void addBook(Books book);
 	
 }

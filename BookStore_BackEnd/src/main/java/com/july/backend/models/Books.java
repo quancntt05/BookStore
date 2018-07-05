@@ -32,17 +32,20 @@ public class Books implements java.io.Serializable {
 	private Integer price;
 	private String author;
 	private String publish;
+	private String urlBook;
+	private String image;
 
 	public Books() {
 	}
 
-	public Books(Category category, String namebook, String descbook, Integer price, String author, String publish) {
+	public Books(Category category, String namebook, String descbook, Integer price, String author, String publish, String urlBook) {
 		this.category = category;
 		this.namebook = namebook;
 		this.descbook = descbook;
 		this.price = price;
 		this.author = author;
 		this.publish = publish;
+		this.urlBook = urlBook;
 	}
 
 	@Id
@@ -111,6 +114,36 @@ public class Books implements java.io.Serializable {
 
 	public void setPublish(String publish) {
 		this.publish = publish;
+	}
+	
+	@Column(name = "urlBook")
+	public String getUrlBook() {
+		return urlBook;
+	}
+	
+	public void setUrlBook(String urlBook) {
+		this.urlBook = urlBook;
+	}
+	
+	@Column(name = "image")
+	public String getImage() {
+		return image;
+	}
+	
+	public void setImage(String image) {
+		this.image = image;
+	}
+	
+	@Override
+	public String toString() {
+		return 
+				 "Name Book: "+ namebook +
+				 " Desc: "+ descbook +
+				 " Price: "+ price +
+				 " Author: "+ author +
+				 " Publish: "+ publish +
+				 " Image: "+ image +
+				 " Link: "+ urlBook;
 	}
 
 }

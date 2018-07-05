@@ -46,4 +46,12 @@ public class BookService implements BookRepository{
 		return null;
 	}
 
+	@Override
+	public void addBook(Books book) {
+		Session session = HibernateUtil.getSessionFatory().openSession();
+		session.persist(book);
+		
+	}
+
+
 }
